@@ -1,0 +1,66 @@
+.btnOpen {
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  margin-top: 10px;
+  padding: 5px;
+  transition: all 1s;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: rgb(102, 0, 255);
+  span {
+    display: none;
+    font-size: 20px;
+    animation: slideIn 1s;
+  }
+  &:hover {
+    cursor: pointer;
+    span {
+      display: block;
+    }
+  }
+}
+
+.open {
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 2s forwards;
+  width: 80vw;
+  height: 100vh;
+  background-color: rgb(102, 0, 255);
+  mat-icon {
+    width: 100%;
+    text-align: end;
+  }
+  &.close {
+    animation: slideOf 2s forwards;
+  }
+}
+
+.container-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+@keyframes slideIn {
+  0% {
+    display: flex;
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+    display: flex;
+  }
+}
+
+@keyframes slideOf {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+    display: none;
+  }
+}
