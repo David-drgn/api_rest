@@ -2,6 +2,10 @@
     
     <div class="open" [class]="!viewMenu? 'close' : ''">
         <mat-icon (click)="viewBtnFunc()">close</mat-icon>
+        <div class="wrapper">
+            <button routerLink="./add"><mat-icon>add</mat-icon>Cadastrar</button>
+            <button routerLink="../"><mat-icon>home</mat-icon>Home</button>
+        </div>
     </div>
 
     <div class="btnOpen" (click)="viewBtnFunc()" *ngIf="viewBtn">

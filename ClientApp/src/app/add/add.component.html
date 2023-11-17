@@ -1,0 +1,24 @@
+<div class="container">
+    <app-menu-bar></app-menu-bar>
+    <form>
+        <div>
+            <span>Link da imagem:</span>
+            <input type="text" #imgValue (input)="IMG(imgValue.value)">
+        </div>
+        <div>
+            <span>Nome da música:</span>
+            <input type="text" #nomeValue>
+        </div>
+        <div>
+            <span>Banda:</span>
+            <input type="text" #bandaValue>
+        </div>
+        <div>
+            <span>Tempo:</span>
+            <input type="text" #timeValue>
+        </div>
+    </form>
+    <button (click)="submit(imgValue.value, nomeValue.value, bandaValue.value, timeValue.value)">Enviar</button>
+</div>
+
+<app-load *ngIf="load"></app-load>

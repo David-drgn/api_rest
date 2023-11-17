@@ -1,3 +1,21 @@
 <div class="container">
     <app-menu-bar></app-menu-bar>
+    <div class="music">
+        <div class="search">
+            <mat-icon>search</mat-icon><input type="text" #searchText placeholder="Realizar pesquisa..." (input)="search(searchText.value)">
+        </div>
+        <div class="card-container">
+            <div class="card" *ngFor="let item of list">
+                <img
+                    [src]="item.img">
+                <div class="info">
+                    <span>Música: {{item.nome}}</span>
+                    <span>Banda: {{item.banda}}</span>
+                    <span>Duração: {{item.duracao}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<app-load *ngIf="load"></app-load>
