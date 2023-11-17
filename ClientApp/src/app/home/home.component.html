@@ -6,6 +6,7 @@
         </div>
         <div class="card-container">
             <div class="card" *ngFor="let item of list">
+                <div class="card-wrapper"></div>
                 <img
                     [src]="item.img">
                 <div class="info">
@@ -13,6 +14,7 @@
                     <span>Banda: {{item.banda}}</span>
                     <span>Duração: {{item.duracao}}</span>
                 </div>
+                <button (click)="deleteMusic(item.id)">Deletar música</button>
             </div>
         </div>
     </div>

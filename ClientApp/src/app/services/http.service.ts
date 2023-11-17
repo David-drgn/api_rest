@@ -14,11 +14,12 @@ export class HttpService {
         'https://api-rest-mpmg.vercel.app' + '/api/' + api,
         body
       );
-    else
+    else {
       return this.httpClient.post<T>(
         'http://localhost:5001' + '/api/' + api,
         body
       );
+    }
   }
 
   get(api: string) {
@@ -26,6 +27,20 @@ export class HttpService {
       return this.httpClient.get(
         'https://api-rest-mpmg.vercel.app' + '/api/' + api
       );
-    else return this.httpClient.get('http://localhost:5001' + '/api/' + api);
+    else {
+      return this.httpClient.get('http://localhost:5001' + '/api/' + api);
+    }
+  }
+
+  delete<T = any>(api: string, params: any) {
+    if (!location.origin.includes('localhost:4200'))
+      return this.httpClient.delete<T>(
+        'https://api-rest-mpmg.vercel.app' + '/api/' + api + params
+      );
+    else {
+      return this.httpClient.delete<T>(
+        'http://localhost:5001' + '/api/' + api + params
+      );
+    }
   }
 }

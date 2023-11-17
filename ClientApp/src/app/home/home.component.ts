@@ -72,4 +72,26 @@ export class HomeComponent {
       }
     );
   }
+
+  deleteMusic(id: string) {
+    this.load = true;
+    this.http
+      .delete('deleteMusic/', id)
+      .subscribe(
+        (res: any) => {
+          if (res.erro) {
+            this.load = false;
+            this.openDialog('Erro', 'Erro ao puxar as músicas cadastradas');
+            return;
+          }
+          this.load = false;
+          this.list = this.listAUX.filter((e:any) => e.id != id)
+        },
+        (error: any) => {
+          this.load = false;
+          this.openDialog('Erro', 'Erro ao puxar as músicas cadastradas');
+          return;
+        }
+      );
+  }
 }

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AlertComponent } from '../alert/alert.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpService } from '../services/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -12,7 +13,11 @@ import { HttpService } from '../services/http.service';
 export class AddComponent {
   load = false;
 
-  constructor(private http: HttpService, private dialog: MatDialog) {}
+  constructor(
+    private http: HttpService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
 
   openDialog(title: string, message: string) {
     this.dialog.open(AlertComponent, {
@@ -49,11 +54,13 @@ export class AddComponent {
             return;
           }
           this.load = false;
+          this.openDialog('Cadastro', 'Música cadastrada');
+          this.router.navigate(['../'])
           return;
         },
         (error: any) => {
           this.load = false;
-          this.openDialog('Erro', 'Erro ao puxar as músicas cadastradas');
+          this.openDialog('Erro', 'Erro ao cadastrar');
           return;
         }
       );

@@ -24,7 +24,19 @@ app.post("/api/registerMusic", async (req, res) => {
     const result = await client.query(dadosQuery);
     return res.json({ result, erro: false });
   } catch {
-    return res.json({ message: "Erro ao realizar busca", erro: true });
+    return res.json({ message: "Erro ao cadastrar música", erro: true });
+  }
+});
+
+app.delete("/api/deleteMusic/:id", async (req, res) => {
+  const client = await pool.connect();
+  const id = req.params.id;
+  const dadosQuery = `DELETE FROM music WHERE id = '${id}';`;
+  try {
+    const result = await client.query(dadosQuery);
+    return res.json({ result, erro: false });
+  } catch {
+    return res.json({ message: "Erro ao excluir música", erro: true });
   }
 });
 
