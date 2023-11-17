@@ -49,7 +49,7 @@ app.get("/api/getterMusic", async (req, res) => {
   }
 });
 
-app.get("", async (req, res) => {
+app.get("/", async (req, res) => {
   return res.json({
     message: "A API está rodando",
     author: "David Raphael Gustavo Neves",
