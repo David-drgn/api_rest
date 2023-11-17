@@ -11,7 +11,7 @@ export class HttpService {
   post<T = any>(api: string, body: any = {}) {
     if (!location.origin.includes('localhost:4200'))
       return this.httpClient.post<T>(
-        'https://via-lacta-api.vercel.app' + '/api/' + api,
+        'https://api-rest-mpmg.vercel.app' + '/api/' + api,
         body
       );
     else
@@ -24,7 +24,7 @@ export class HttpService {
   get(api: string) {
     if (!location.origin.includes('localhost:4200'))
       return this.httpClient.get(
-        'https://via-lacta-api.vercel.app' + '/api/' + api
+        'https://api-rest-mpmg.vercel.app' + '/api/' + api
       );
     else return this.httpClient.get('http://localhost:5001' + '/api/' + api);
   }
