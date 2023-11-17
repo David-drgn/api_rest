@@ -1,4 +1,4 @@
-import { conectString } from "./Connect/connect.js";
+import { conectString } from "./connect/connect.js";
 
 import express from "express";
 import cors from "cors";
