@@ -10,6 +10,16 @@ app.use(express.json());
 
 app.use(cors());
 
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://api-rest-theta.vercel.app/",
+    "http://localhost:4200/"
+  );
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 const port = process.env.PORT || 5001;
 
 console.log("Rodando");
